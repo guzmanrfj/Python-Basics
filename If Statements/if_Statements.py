@@ -1,28 +1,20 @@
-###
-# opened_file = open('AppleStore.csv')
-#from csv import reader
-#read_file = reader(opened_file)
-#apps_data = list(read_file)
-#opened_file.close()
-
-#free_apps_ratings = []
-#for row in apps_data[1:]:
-#    rating = float(row[7])
-    
-    # Complete the code from here
-
-opened_file = open('AppleStore.csv')
 from csv import reader
-read_file = reader(opened_file)
-apps_data = list(read_file)
+
+# Abrir el archivo especificando codificación UTF-8
+with open('AppleStore.csv', encoding='utf-8') as opened_file:
+    read_file = reader(opened_file)
+    apps_data = list(read_file)
 opened_file.close()
 
-all_ratings = []
+free_apps_ratings = []
 for row in apps_data[1:]:
     rating = float(row[8])
-    all_ratings.append(rating)
-    
-avg_rating = sum(all_ratings)/len(all_ratings)
-print(avg_rating)
-print(len((all_ratings)))
-print(sum(all_ratings))    
+    price = float(row[5])
+
+    if price == 0.0:
+        free_apps_ratings.append(rating)
+
+avg_rating_free = sum(free_apps_ratings)/len(free_apps_ratings)
+print(sum(free_apps_ratings))
+print(len(free_apps_ratings))
+print(avg_rating_free)
