@@ -33,13 +33,23 @@ def is_odd(n):
 print("Is 350 odd?", is_odd(350))
 print("Is 125 odd?", is_odd(125))
 
-def can_run_for_president(age, is_natural_born_citizen, altura):
+def can_run_for_president(age, is_natural_born_citizen):
     """Can someone of the given age and citizenship status run for president in the US?"""
     # The US Constitution says you must be a natural born citizen *and* at least 35 years old
-    return is_natural_born_citizen and (age >= 35) and (altura >= 1.85)
+    return is_natural_born_citizen and (age >= 35) 
 
-print(can_run_for_president(True, 19, 1.22))
-print(can_run_for_president(1.67, 55, False))
-print(can_run_for_president(55, 1.90, True))
-print(can_run_for_president(True, 39, 1.92))
+print(can_run_for_president(True, 19))
+print(can_run_for_president(55, False))
+print(can_run_for_president(55, True))
+print(can_run_for_president(39,True))
 
+def sign(num):
+    
+    if num > 0:
+        return(1)
+    elif num < 0:
+        return(-1)
+    else:
+        return(0)
+
+print(sign(0.000001))
